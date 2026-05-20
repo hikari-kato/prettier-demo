@@ -1,0 +1,154 @@
+@use 'sass:color';
+
+$color-primary: #2563eb;
+$color-secondary: #64748b;
+$color-bg: #f8fafc;
+$color-text: #1e293b;
+$radius: 8px;
+$spacing: 1rem;
+
+@mixin focus-ring {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.6;
+  color: $color-text;
+  background: $color-bg;
+}
+
+.site-header,
+.site-footer {
+  padding: $spacing * 2;
+  text-align: center;
+}
+
+.site-header {
+  background: linear-gradient(
+    135deg,
+    $color-primary,
+    color.adjust($color-primary, $lightness: -12%)
+  );
+  color: #fff;
+
+  .lead {
+    margin: 0.5rem 0 0;
+    opacity: 0.9;
+  }
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: $spacing * 2;
+}
+
+.card {
+  background: #fff;
+  border-radius: $radius;
+  padding: $spacing * 1.5;
+  margin-bottom: $spacing * 1.5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &--primary {
+    background: $color-primary;
+    color: #fff;
+  }
+
+  &--secondary {
+    background: $color-secondary;
+    color: #fff;
+  }
+
+  &--ghost {
+    background: transparent;
+    color: $color-secondary;
+    border: 1px solid $color-secondary;
+  }
+}
+
+.message-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 $spacing;
+
+  &__item {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: $radius;
+    font-size: 1rem;
+
+    &:focus {
+      border-color: $color-primary;
+      @include focus-ring;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .button-group {
+    flex-direction: column;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}

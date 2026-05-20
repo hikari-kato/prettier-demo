@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prettier テスト</title>
+    <link rel="stylesheet" href="common/css/sample.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Prettier 自動整形テスト</h1>
+      <p class="lead">保存時に HTML / JS / SCSS が整形されるか確認するサンプルです。</p>
+    </header>
+
+    <main class="container">
+      <section class="card" id="demo-section">
+        <h2>カウンター</h2>
+        <p>現在の値: <strong id="counter-value">0</strong></p>
+        <div class="button-group">
+          <button type="button" id="btn-decrement" class="btn btn--secondary">−1</button>
+          <button type="button" id="btn-increment" class="btn btn--primary">+1</button>
+          <button type="button" id="btn-reset" class="btn btn--ghost">リセット</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>メッセージ一覧</h2>
+        <ul id="message-list" class="message-list"></ul>
+        <form id="message-form" class="message-form">
+          <label for="message-input">新しいメッセージ</label>
+          <input type="text" id="message-input" name="message" placeholder="入力して追加…" />
+          <button type="submit" class="btn btn--primary">追加</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>&copy; 2026 Prettier Test Project</small>
+    </footer>
+
+    <script src="common/js/sample.js"></script>
+  </body>
+</html>
